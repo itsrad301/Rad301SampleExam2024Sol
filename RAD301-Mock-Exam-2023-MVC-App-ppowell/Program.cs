@@ -1,3 +1,5 @@
+using Rad301_Mock_Exam_2023_DataModel_ppowell;
+
 namespace RAD301_Mock_Exam_2023_MVC_App_ppowell
 {
     public class Program
@@ -7,6 +9,11 @@ namespace RAD301_Mock_Exam_2023_MVC_App_ppowell
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            // We have to add the Flight Context to the IOC
+            // referenced in the
+            // Data Model Project (see Project references) 
+            builder.Services.AddDbContext<FlightContext>();
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
